@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author zhwu(zhwu @ tmindtech.com)
+ * @author zhwu
  */
 public class CoinExcel implements Serializable {
     @Excel(name = "用户账号")

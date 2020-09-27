@@ -7,7 +7,9 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 /**
- * @author zhwu(zhwu @ tmindtech.com)
+ * @author zhwu
+ * 如果es服务器上没有movies索引，项目启动时会自动创建，并使用下面定义的分词器
+ * 如果es服务器上已经存在了movies索引，下面定义的属性会失效，因为es的索引不允许覆盖，只能先删除，再新建
  */
 @Document(indexName = "movies")
 public class Movies implements Serializable {

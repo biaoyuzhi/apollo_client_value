@@ -28,10 +28,10 @@ public class AAController {
 
     @GetMapping("/index")
     public Page<Movies> getIndex(@RequestParam("title") String title,
-                           @RequestParam("director") String director,
-                           @RequestParam("year") Integer year,
-                           @RequestParam(name = "pageNum", defaultValue = "0") Integer pageNum,
-                           @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize){
+                                 @RequestParam("director") String director,
+                                 @RequestParam("year") Integer year,
+                                 @RequestParam(name = "pageNum", defaultValue = "0") Integer pageNum,
+                                 @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
         Pageable pageable = PageRequest.of(pageNum, pageSize);
         Page<Movies> movies = repository.findByTitleOrDirectorOrYear(title, director, year, pageable);
         return movies;

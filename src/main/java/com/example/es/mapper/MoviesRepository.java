@@ -7,7 +7,7 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 import org.springframework.stereotype.Repository;
 
 /**
- * @author zhwu(zhwu @ tmindtech.com)
+ * @author zhwu
  */
 @Repository
 public interface MoviesRepository extends ElasticsearchRepository<Movies, Long> {
