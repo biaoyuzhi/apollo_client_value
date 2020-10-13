@@ -7,6 +7,7 @@ import com.example.es.pojo.CoinExcel;
 import com.example.es.pojo.Movies;
 import java.util.Date;
 import java.util.List;
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,6 +26,9 @@ import org.springframework.web.multipart.MultipartFile;
 public class AAController {
     @Autowired
     private MoviesRepository repository;
+
+    @Resource
+    private Movies zhwu;
 
     @GetMapping("/index")
     public Page<Movies> getIndex(@RequestParam("title") String title,
@@ -49,5 +53,14 @@ public class AAController {
         }
         System.out.println(list.get(0).toString());
         System.err.println(new Date());
+    }
+
+    /**
+     * 1、启动类上添加注解：@ImportResource(locations = "classpath:bean.xml")
+     * 2、@Resource注解注入指定id的bean
+     */
+    @GetMapping("/xml")
+    public String getXmlValue() {
+        return zhwu.getTitle();
     }
 }
